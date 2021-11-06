@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
+
 using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
@@ -13,6 +15,7 @@ public class NewBehaviourScript : MonoBehaviour
     
     private float timer = 0.0f;
     private float delay = 1.0f;
+    private float death_time = 0.0f;
     
     private int alcohol = 20;
     private int hunger = 20;
@@ -38,9 +41,19 @@ public class NewBehaviourScript : MonoBehaviour
             {
                 LogStats();
             }
+            if (areYouDeadYet == true) {
+                if (death_time == 0.0f) {
+                    death_time = gameTime;
+                    Debug.Log("Aika asetettu");
+                }
+                
+                if (gameTime - death_time > 3.0)
+                {
+                    Debug.Log("uudelleen!");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name); // loads current scene
+                }
+            }
             CheckStats();
-
-            
 
         }
     }
@@ -114,7 +127,7 @@ public class NewBehaviourScript : MonoBehaviour
     public void eat()
     {
         alcohol -= 5;
-        hunger -= 10;
+        hunger -= 11;
         project -= 5;
     }
     
