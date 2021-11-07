@@ -96,7 +96,7 @@ public class NewBehaviourScript : MonoBehaviour
         if ((alcohol <= 0 || social <= 0 || hunger >= 100 || project <= 0) && victory == false)
         {
             Debug.Log("Kuolit saatana.");
-            aikalabel.GetComponent<TMPro.TextMeshProUGUI>().text = "KUOLIT";
+            aikalabel.GetComponent<TMPro.TextMeshProUGUI>().text = "Menit nukkumaan :(";
             aika.GetComponent<TMPro.TextMeshProUGUI>().text = "";
             areYouDeadYet = true;
         }
@@ -118,7 +118,7 @@ public class NewBehaviourScript : MonoBehaviour
     {
         alcohol += 10;
         social += 6;
-        hunger += 5;
+        hunger += 2;
         if (alcohol > 30) {
             project = project / 2;
         }
