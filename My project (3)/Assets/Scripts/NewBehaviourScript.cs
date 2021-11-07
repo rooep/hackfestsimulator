@@ -36,9 +36,11 @@ public class NewBehaviourScript : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > delay) {
             timer = 0.0f;
-            DegradeStats();
-            if (areYouDeadYet == false)
+            gameTime += 1;    
+            
+            if (areYouDeadYet == false && victory == false)
             {
+                DegradeStats();
                 LogStats();
             }
             if (areYouDeadYet == true) {
@@ -66,7 +68,7 @@ public class NewBehaviourScript : MonoBehaviour
 
         hunger += 1;
         social -= 1;
-        gameTime += 1;
+        
     }
     
     private void LogStats() {
@@ -127,7 +129,7 @@ public class NewBehaviourScript : MonoBehaviour
     public void eat()
     {
         alcohol -= 5;
-        hunger -= 11;
+        hunger -= 12;
         project -= 5;
     }
     
@@ -138,7 +140,7 @@ public class NewBehaviourScript : MonoBehaviour
         
         } else {
             alcohol -= 5;
-            hunger += 3;
+            hunger += 2;
             project += 10;
             social -= 10;
         }
@@ -146,9 +148,9 @@ public class NewBehaviourScript : MonoBehaviour
     
     public void do_social()
     {
-        hunger += 4;
+        hunger += 3;
         project -= 5;
-        social += 10;
+        social += 15;
     }
     
 }
